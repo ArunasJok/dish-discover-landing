@@ -11,7 +11,7 @@
             --primary-color: #0078d7;
             --secondary-color: #00a651;
             --text-color: #333;
-            --light-bg: #f7f7f7;
+            --light-bg: #f7f7f7e0;
             --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
@@ -23,11 +23,35 @@
             color: var(--text-color);
             line-height: 1.6;
         }
+
+        .profile-picture {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-picture:hover {
+            transform: scale(1.1);
+        }
+        
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background-color: #fff;
+            background-color: #ffffffb7;
             padding: 30px;
             box-shadow: var(--card-shadow);
             border-radius: 8px;
@@ -162,6 +186,21 @@
             padding-top: 20px;
             border-top: 1px solid #eee;
         }
+
+        .university-logo {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 120px;
+        height: auto;
+        z-index: 50;
+    }
+    
+    .university-logo img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
         
         @media (max-width: 768px) {
             .container {
@@ -190,11 +229,22 @@
                 width: 80%;
                 justify-content: center;
             }
+
+            .university-logo {
+            position: relative;
+            top: 0;
+            right: 0;
+            width: 100px;
+            margin: 10px auto;
+        }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="university-logo">
+            <img src="images/setu.png" alt="University Logo" />
+        </div>        
         <header>
             <img src="images/logo.png" alt="Dish Discover Logo" />
             <h1>Dish Discover</h1>
@@ -203,7 +253,10 @@
 
         <section class="intro">
             <p>
-                <strong>Dish Discover</strong> is a responsive web application designed to simplify meal planning by suggesting recipes based on the ingredients available at home. Leveraging the Spoonacular API and AI-powered recommendations, the app helps reduce food waste and promotes sustainable cooking practices. It features a robust CI/CD pipeline using Azure DevOps for seamless deployment.
+                <strong>Dish Discover</strong> is a web-based app designed to help people decide what to cook based on the ingredients they already have at home. Instead of searching through cookbooks or random recipe sites, users can simply enter what’s in their fridge or cupboards, and the app will suggest recipes they can make.
+                The app gets recipes from Spoonacular API. According to the Spoonacular API documentation, the platform provides comprehensive data on recipes, nutritional values, and ingredients, which enhances user experience in culinary applications (1). Also uses AI-powered recommendations to personalize suggestions over time. 
+                The goal is to make meal planning easier, reduce food waste, and help users make the most of what they already have.
+                
             </p>
         </section>
 
@@ -264,6 +317,9 @@
         <footer>
             <p>&copy; 2025 Dish Discover. All rights reserved.</p>
         </footer>
+    </div>
+    <div class="profile-picture">
+        <img src="images/MyFace.jpg" alt="Developer Profile" />
     </div>
 </body>
 </html>
